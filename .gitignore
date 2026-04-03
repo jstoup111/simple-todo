@@ -1,0 +1,40 @@
+# Rails
+*.rbc
+capybara-*.html
+.rspec
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/*.sqlite3-shm
+/db/*.sqlite3-wal
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/public/assets
+.byebug_history
+.env
+.env.*
+!.env.example
+
+# Gems
+/vendor/bundle
+.bundle
+
+# Node / Yarn
+/node_modules
+yarn-error.log
+
+# System
+.DS_Store
+*.swp
+*.swo
+
+# Harness pipeline state
+.pipeline/
+.worktrees/
+
+# Ignore key files for decrypting credentials and more.
+/config/*.key
+

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/james.stoup/code/todo/.pipeline/audit-trail)",
+      "Bash(mkdir -p /Users/james.stoup/code/todo/.pipeline/audit-trail/batch-1)",
+      "Bash(rails --version)",
+      "Bash(asdf list:*)",
+      "Bash(asdf exec:*)",
+      "Bash(ASDF_RUBY_VERSION=3.3.5 asdf exec rails new todo --api --database=postgresql --skip-git --force)"
+    ]
+  }
+}
