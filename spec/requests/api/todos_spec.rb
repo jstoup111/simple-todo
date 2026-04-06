@@ -40,4 +40,43 @@ RSpec.describe "Api::Todos", type: :request do
       end
     end
   end
+
+  describe "PATCH /api/todos/:id/complete" do
+    context "with an existing todo" do
+      it "returns 200 with done: true and updates the record" do
+        todo = create(:todo, done: false)
+        original_updated_at = todo.updated_at
+
+        patch "/api/todos/#{todo.id}/complete", as: :json
+
+        expect(response).to have_http_status(:ok)
+        body = JSON.parse(response.body)
+        expect(body["done"]).to eq(true)
+        expect(todo.reload.done).to eq(true)
+        expect(todo.reload.updated_at).to be >= original_updated_at
+      end
+    end
+
+    context "when todo is already done (idempotent)" do
+      it "returns 200 with done: true" do
+        todo = create(:todo, done: true)
+
+        patch "/api/todos/#{todo.id}/complete", as: :json
+
+        expect(response).to have_http_status(:ok)
+        body = JSON.parse(response.body)
+        expect(body["done"]).to eq(true)
+      end
+    end
+
+    context "when todo does not exist" do
+      it "returns 404 with error message" do
+        patch "/api/todos/9999/complete", as: :json
+
+        expect(response).to have_http_status(:not_found)
+        body = JSON.parse(response.body)
+        expect(body["error"]).to eq("Not found")
+      end
+    end
+  end
 end

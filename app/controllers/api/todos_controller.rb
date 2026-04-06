@@ -9,14 +9,18 @@ module Api
       end
     end
 
+    def complete
+      todo = Todo.find(params[:id])
+      todo.update!(done: true)
+      render json: todo, status: :ok
+    rescue ActiveRecord::RecordNotFound
+      render json: { error: "Not found" }, status: :not_found
+    end
+
     private
 
     def todo_params
       params.require(:todo).permit(:title)
-    end
-
-    def complete
-      head :not_implemented
     end
   end
 end
