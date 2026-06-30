@@ -1,8 +1,8 @@
 # Stories: Todo API
 
 **Feature:** Todo API  
-**Design doc:** `docs/specs/2026-04-01-todo-api.md`  
-**Status:** Draft
+**Design doc:** `.docs/specs/2026-04-01-todo-api.md`  
+**Status:** Accepted
 
 ---
 
