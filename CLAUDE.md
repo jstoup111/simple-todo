@@ -68,7 +68,7 @@ Set `WORKTREE_DB_SUFFIX` when running parallel worktrees to avoid DB collisions.
 
 - `.pipeline/` — harness runtime state (git-ignored)
 - `.memory/` — persistent project memory (decisions, patterns, gotchas, context)
-- `docs/stories/` — user stories
-- `docs/plans/` — implementation plans
-- `docs/decisions/` — ADRs
-- `docs/specs/` — generated acceptance specs
+- `.docs/stories/` — user stories
+- `.docs/plans/` — implementation plans
+- `.docs/decisions/` — ADRs
+- `.docs/specs/` — generated acceptance specs
